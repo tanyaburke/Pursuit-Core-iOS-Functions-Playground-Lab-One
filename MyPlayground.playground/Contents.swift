@@ -6,6 +6,11 @@ import UIKit
 
 // Your function here
 
+func doubleNum(number x: Double)-> Double{
+    return x * 2
+}
+print(doubleNum(number: 3.0))
+//used doubleNum instead of double for func name
 
 let testCasesOne: [(Double, Double)] = [
     (input: 3.0, expectedOutput: 6.0),
@@ -14,10 +19,10 @@ let testCasesOne: [(Double, Double)] = [
     (input: 99, expectedOutput: 198)
 ]
 
-//for (input, expectedOutput) in testCasesOne {
-//    let output = double(input)
-//    assert(output == expectedOutput, "Was expecting \(expectedOutput) for input \(input), but got \(output)")
-//}
+for (input, expectedOutput) in testCasesOne {
+    let output = doubleNum(number: input)
+    assert(output == expectedOutput, "Was expecting \(expectedOutput) for input \(input), but got \(output)")
+}
 
 
 
@@ -26,6 +31,13 @@ let testCasesOne: [(Double, Double)] = [
 // Write a function named smallest(of:and:) that takes in two Doubles and returns the smaller number
 
 // Your function here
+func smallest(of x: Double, and y: Double)->Double{
+    if x < y {
+    return x
+    } else{
+        return y
+    }
+}
 
 let testCasesTwo: [(Double, Double, Double)] = [
     (inputOne: 8.0, inputTwo: 3.0, expectedOutput: 3.0),
@@ -34,16 +46,28 @@ let testCasesTwo: [(Double, Double, Double)] = [
     (inputOne: 2.3, inputTwo: 2.03, expectedOutput: 2.03)
 ]
 
-//for (inputOne, inputTwo, expectedOutput) in testCasesTwo {
-//    let output = smallest(of: inputOne, and: inputTwo)
-//    assert(output == expectedOutput, "Was expecting \(expectedOutput) for inputs \(inputOne) and \(inputTwo) but got \(output)")
-//}
+for (inputOne, inputTwo, expectedOutput) in testCasesTwo {
+    let output = smallest(of: inputOne, and: inputTwo)
+    assert(output == expectedOutput, "Was expecting \(expectedOutput) for inputs \(inputOne) and \(inputTwo) but got \(output)")
+}
 
 // Question Three
 
 // Write a function named smallestValue(in:) that takes in an array of Doubles and returns the smallest Double
 
 // Your function here
+
+func smallestValue(in numbers: [Double]) -> Double {
+   var smallestNum = numbers[0]
+    for num in numbers {
+        if num < smallestNum{
+            smallestNum = num
+        }
+    
+    return smallestNum
+}
+}
+
 
 let testCasesThree: [([Double], Double)] = [
     (input: [1.0,2,3,4,5,5], expectedOutput: 1.0),
@@ -52,10 +76,10 @@ let testCasesThree: [([Double], Double)] = [
     (input: [-4,-59,-348,-34,-4], expectedOutput: -348),
 ]
 
-//for (input, expectedOutput) in testCasesThree {
-//    let output = smallestValue(in: input)
-//    assert(output == expectedOutput, "Was expecting \(expectedOutput) for input \(input), but got \(output)")
-//}
+for (input, expectedOutput) in testCasesThree {
+    let output = smallestValue(in: input)
+    assert(output == expectedOutput, "Was expecting \(expectedOutput) for input \(input), but got \(output)")
+}
 
 
 // Question Four
@@ -63,6 +87,17 @@ let testCasesThree: [([Double], Double)] = [
 // Write a function named occurrances(of:in:) that counts how many characters in a String match a specific character.
 
 // Your function here
+
+func occurances(of char: Character, in string: String) -> Int{
+    var charApperance = 0
+    for char in string {
+        if string.contains(char) {
+            charApperance += 1
+        }
+    
+    return  charApperance
+}
+}
 
 let testCasesFour: [(Character, String, Int)] = [
     (inputOne: "l", inputTwo: "hello", expectedOutput: 2),
